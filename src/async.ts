@@ -36,7 +36,7 @@ export class ArgonWorker {
 		salt: Uint8Array,
 		hash: Uint8Array,
 		options?: ArgonOptions,
-	): Promise<Uint8Array> {
+	): Promise<boolean> {
 		return new Promise((resolve, reject) => {
 			this.#promises.set(this.#rid, [resolve, reject]);
 			this.#worker.postMessage([this.#rid, true, password, salt, hash, options]);
