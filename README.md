@@ -1,4 +1,4 @@
-# argon2ian
+# argon2ian [![Support me on Patreon](https://img.shields.io/badge/dynamic/json?logo=patreon&color=%23e85b46&label=supporters&query=data.attributes.patron_count&suffix=%20patrons&url=https%3A%2F%2Fwww.patreon.com%2Fapi%2Fcampaigns%2F9395291)]()
 
 A *seriously size-optimized* WebAssembly build + conveniently async-ified TypeScript wrapper
 for the [reference implementation](https://github.com/P-H-C/phc-winner-argon2)
