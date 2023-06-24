@@ -10,7 +10,7 @@ of the Argon2 password hash / KDF, the winner of the Password Hashing Competitio
 | WASM gzipped        | 4776          |
 | WASM gzipped base64 | 6368          |
 | With sync wrapper   | 7836          |
-| With async wrapper  | 8475          |
+| With async wrapper  | 8450          |
 
 - No emscripten in the build! Built with raw clang using [wasi-libc](https://github.com/WebAssembly/wasi-libc) for basic headers
   - this does mean no SIMD though; autovectorization seems to only make it slower and we can't compile the SSE version like emscripten can
