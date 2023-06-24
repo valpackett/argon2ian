@@ -10,7 +10,7 @@ of the Argon2 password hash / KDF, the winner of the Password Hashing Competitio
 | WASM gzipped        | 4776          |
 | WASM gzipped base64 | 6368          |
 | With sync wrapper   | 7836          |
-| With async wrapper  | 8336          |
+| With async wrapper  | 8475          |
 
 - No emscripten in the build! Built with raw clang using [wasi-libc](https://github.com/WebAssembly/wasi-libc) for basic headers
   - this does mean no SIMD though; autovectorization seems to only make it slower and we can't compile the SSE version like emscripten can
@@ -64,14 +64,14 @@ import { decode } from 'https://deno.land/std@0.192.0/encoding/hex.ts'; // just 
 
 const enco = new TextEncoder();
 
-const hash = hash(enco.encode('password'), enco.encode('somesalt'),
+const hsh = hash(enco.encode('password'), enco.encode('somesalt'),
   { t: 2, variant: variant.Argon2i, version: version.V0x10 }); // -> Uint8Array
 
 const isCorrect = verify(enco.encode('password'), enco.encode('somesalt'),
   decode(enco.encode('f6c4db4a54e2a370627aff3db6176b94a2a209a62c8e36152711802f7b30c694')),
   { t: 2, variant: variant.Argon2i, version: version.V0x10 }); // -> boolean
 
-console.log(hash, isCorrect);
+console.log(hsh, isCorrect);
 ```
 
 ## License
