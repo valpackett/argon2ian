@@ -1,0 +1,13 @@
+{
+	"fmt": {
+		"options": {
+			"useTabs": true,
+			"lineWidth": 120,
+			"singleQuote": true,
+			"proseWrap": "preserve"
+		}
+	},
+	"imports": {
+		"https://deno.land/x/deno_cache@0.4.1/dirs.ts": "https://raw.githubusercontent.com/denoland/deno_cache/9a1decdbfd7c9502ad52498720e29b21e33cead2/dirs.ts"
+	}
+}
