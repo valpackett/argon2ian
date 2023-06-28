@@ -1,7 +1,7 @@
 import src from './gen/worker.blob.js';
-import { ArgonOptions, variant, version } from './types.ts';
+import { ArgonOptions, variant } from './types.ts';
 export type { ArgonOptions };
-export { variant, version };
+export { variant };
 
 export class ArgonWorker {
 	#rid = 0;
