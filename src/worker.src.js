@@ -8,3 +8,5 @@ self.onmessage = function (e) {
 		self.postMessage([rid, false, err]);
 	}
 };
+
+self.postMessage('r');

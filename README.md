@@ -10,7 +10,7 @@ of the Argon2 password hash / KDF, the winner of the Password Hashing Competitio
 | WASM gzipped        | 3129          |
 | WASM gzipped base64 | 4172          |
 | With sync wrapper   | 5839          |
-| With async wrapper  | 6251          |
+| With async wrapper  | 6393          |
 
 - No emscripten in the build! Built with raw clang using [wasi-libc](https://github.com/WebAssembly/wasi-libc) for basic headers / compiler-rt
 - Using a simple arena allocator
@@ -42,6 +42,8 @@ import { decode } from 'https://deno.land/std@0.192.0/encoding/hex.ts'; // just 
 
 const wrk = new ArgonWorker();
 const enco = new TextEncoder();
+
+await wrk.ready;
 
 const hash = await wrk.hash(enco.encode('password'), enco.encode('somesalt'),
   { t: 2, variant: variant.Argon2i }); // -> Uint8Array

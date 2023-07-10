@@ -9,14 +9,19 @@ export class ArgonWorker {
 	#worker: Worker = new Worker(URL.createObjectURL(new Blob([src], { type: 'application/javascript' })), {
 		type: 'module',
 	});
+	ready = new Promise((resolve) => {
+		this.#worker.addEventListener('message', (x) => x.data === 'r' && resolve(true), { once: true });
+	});
 
 	constructor() {
-		this.#worker.onmessage = (e) => {
-			const [rid, suc, res] = e.data;
-			const [resolve, reject] = this.#promises.get(rid)!;
-			this.#promises.delete(rid);
-			(suc ? resolve : reject)(res);
-		};
+		this.ready.then(() =>
+			this.#worker.onmessage = (e) => {
+				const [rid, suc, res] = e.data;
+				const [resolve, reject] = this.#promises.get(rid)!;
+				this.#promises.delete(rid);
+				(suc ? resolve : reject)(res);
+			}
+		);
 	}
 
 	hash(
