@@ -36,7 +36,7 @@ Argon2ian provides an async API that hides all the messiness of Web Workers.
 
 ```typescript
 import { ArgonWorker, variant } from 'https://deno.land/x/argon2ian/dist/argon2ian.async.min.js'; // bundled
-// import { ArgonWorker, variant } from 'https://deno.land/x/argon2ian/src/async.ts'; // ← TypeScript/Deno
+// import { ArgonWorker, variant } from 'jsr:@valpackett/argon2ian/async'; // ← JSR/Deno
 
 import { decode } from 'https://deno.land/std@0.192.0/encoding/hex.ts'; // just for the demo here
 
@@ -64,7 +64,7 @@ or if you're already doing your own Web Worker with your own logic, etc…
 
 ```typescript
 import { hash, variant, verify } from 'https://deno.land/x/argon2ian/dist/argon2ian.sync.min.js'; // bundled
-// import { hash, variant, verify } from 'https://deno.land/x/argon2ian/src/argon2.ts'; // ← TypeScript/Deno
+// import { hash, variant, verify } from 'jsr:@valpackett/argon2ian/sync'; // ← JSR/Deno
 
 import { decode } from 'https://deno.land/std@0.192.0/encoding/hex.ts'; // just for the demo here
 

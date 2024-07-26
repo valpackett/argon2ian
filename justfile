@@ -31,8 +31,8 @@ mkwasm:
 	rm argon2.unopt.wasm
 
 mkjs:
-	#!/usr/bin/env -S deno run --allow-env --allow-read --allow-write=dist,src/gen --allow-net=deno.land
-	import { bundle } from 'https://deno.land/x/emit@0.24.0/mod.ts';
+	#!/usr/bin/env -S deno run --allow-env --allow-read --allow-write=dist,src/gen,$HOME/.local/share/deno-wasmbuild --allow-net=jsr.io
+	import { bundle } from 'jsr:@deno/emit@0.43.1';
 	import { minify } from 'npm:terser';
 	async function pack(path) {
 		const bundled = await bundle(new URL(path, 'file://{{justfile_directory()}}/'));

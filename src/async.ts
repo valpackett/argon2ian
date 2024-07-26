@@ -1,5 +1,5 @@
 import src from './gen/worker.blob.js';
-import { ArgonOptions, variant } from './types.ts';
+import { type ArgonOptions, variant } from './types.ts';
 export type { ArgonOptions };
 export { variant };
 
@@ -9,7 +9,7 @@ export class ArgonWorker {
 	#worker: Worker = new Worker(URL.createObjectURL(new Blob([src], { type: 'application/javascript' })), {
 		type: 'module',
 	});
-	ready = new Promise((resolve) => {
+	ready: Promise<boolean> = new Promise((resolve) => {
 		this.#worker.addEventListener('message', (x) => x.data === 'r' && resolve(true), { once: true });
 	});
 
